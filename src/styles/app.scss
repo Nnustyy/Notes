@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  width: 800px;
+}
+
+.note {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+}
+
+.note-title {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.note-desc {
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+.note-delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.note-delete-btn:hover {
+  background: #c0392b;
+}
