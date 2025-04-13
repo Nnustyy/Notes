@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
+
 #root {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
+  
 }
 
 .App {
@@ -14,13 +17,18 @@
 }
 
 .note {
-  background: white;
+  // background: #D5D5D5;
+  // background: -webkit-linear-gradient(45deg, #1b2c55,#3d85a9,#63cac8,#b8edff);background: linear-gradient(45deg, #1b2c55,#3d85a9,#63cac8,#b8edff);
+//   background: -webkit-linear-gradient(90deg, #eb8770,#975281,#123661);
+// background: linear-gradient(90deg, #eb8770,#975281,#123661);
+background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
   border-radius: 12px;
   padding: 20px;
   min-width: 280px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   transition: transform 0.2s;
+  margin-top: 15px;
 }
 
 .note:hover {
@@ -29,12 +37,13 @@
 
 .note-title {
   margin-top: 0;
-  color: #2c3e50;
+  // color: #2c3e50;
+  color: white;
   font-size: 18px;
 }
 
 .note-desc {
-  color: #7f8c8d;
+  color: #a2aaaa;
   line-height: 1.5;
 }
 

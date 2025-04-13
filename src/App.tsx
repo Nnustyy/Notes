@@ -1,21 +1,39 @@
 import React, { FC, use, useState } from 'react';
 import './styles/index.scss'
-const App:FC = () => {
+import Note from './Components/NoteItem';
+import NoteList from './Components/NoteList';
+import MyButton from './Components/UI/formButton/FormButton';
+import MyInput from './Components/UI/input/MyInput';
+import MyTextarea from './Components/UI/textarea/MyTextarea';
+
+interface INote {
+  id:number,
+  title:string,
+  desc:string
+}
+
+const App = () => {
+
+
+const [notes, setNotes] = useState<INote[]>([
+  {id:1, title:'first', desc:'first desc'},
+  {id:2, title:'second', desc:'second desc'},
+  {id:3, title:'third', desc:'third desc'},
+])
 
 
   return (
     <div  className='App'>
-      <div className="note">
-        <div className="note-content">
-          <div className='note-title' >1 Title</div>
-          <div className='note-desc'>
-            descripton
-          </div>
-        </div>
-        <div className="note-btns">
-          <button className='note-delete-btn' >Delete</button>
-        </div>
-      </div>
+
+    <form>
+      <MyInput type="text" placeholder='title'/>
+      <MyTextarea placeholder="descripton" ></MyTextarea>
+      <MyButton>create note</MyButton>
+    </form>
+
+      <NoteList notes={notes} />
+
+
     </div>
   );
 };
