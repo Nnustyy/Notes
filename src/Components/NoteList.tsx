@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Note from './NoteItem';
 
 interface INote {
   id:number,
   desc:string, 
-  title:string
+  title:string,
+  
 }
 
 interface INoteListProps {
@@ -14,8 +15,8 @@ interface INoteListProps {
 const NoteList = ({notes}:INoteListProps) => {
   return (
     <div>
-      {notes.map((note) => 
-      <Note key={note.id} note={note} />
+      {notes.map((note,index) => 
+      <Note key={note.id} note={note} number={index + 1} />
       )}
     </div>
   );

@@ -8,9 +8,9 @@ interface IMyInput {
   value?:string
 }
 
-const MyInput = ({type,placeholder,value}:IMyInput) => {
+const MyInput = ({type,placeholder,value, onChange}:IMyInput) => {
   return (
-    <input  className={classes.myInput} type={type} placeholder={placeholder}  value={value}/>
+    <input  className={classes.myInput} type={type} placeholder={placeholder} value={value} onChange={onChange} />
   );
 };
 

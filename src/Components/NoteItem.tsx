@@ -1,20 +1,21 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 interface INote {
   title:string,
   desc:string,
-  id:number
+  id:number,
 }
 
 interface NoteProps {
-  note:INote
+  note:INote,
+  number?:number
 }
 
-const Note= ({note}:NoteProps) => {
+const Note= ({note,number}:NoteProps) => {
   return (
     <div className="note">
         <div className="note-content">
-          <div className='note-title'> {note.id} {note.title}</div>
+          <div className='note-title'> {number}. {note.title}</div>
           <div className='note-desc'>
             {note.desc}
           </div>

@@ -4,8 +4,7 @@ import classes from './MyTextarea.module.scss'
 interface IMyTextarea {
   placeholder:string,
   onChange?:ChangeEventHandler<HTMLTextAreaElement>,
-  value?:string,
-  className1?:string
+  value?:string
 }
 
 const MyTextarea = ({placeholder, value, onChange}:IMyTextarea) => {
