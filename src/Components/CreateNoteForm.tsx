@@ -3,6 +3,7 @@ import React from 'react';
 import MyButton from './UI/formButton/FormButton';
 import MyInput from './UI/input/MyInput';
 import MyTextarea from './UI/textarea/MyTextarea';
+import classes from './UI/formButton/FormButton.module.scss'
 
 interface INote {
   id:number,
@@ -34,7 +35,7 @@ const CreateNoteForm = ({create}:CreateNoteFormProps) => {
     <form>
     <MyInput type="text" placeholder='title' value={note.title} onChange={e => setNote({...note, title:e.target.value})} />
     <MyTextarea placeholder="descripton" value={note.desc} onChange={e => setNote({...note, desc:e.target.value})} ></MyTextarea>
-    <MyButton onClick={addNewNote} >create note</MyButton>
+    <MyButton className={classes.buttonCreate} onClick={addNewNote} >create note</MyButton>
   </form> 
   );
 };

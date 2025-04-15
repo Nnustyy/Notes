@@ -1,4 +1,6 @@
 import React from 'react';
+import MyButton from './UI/formButton/FormButton';
+import classes from './UI/formButton/FormButton.module.scss'
 
 interface INote {
   title:string,
@@ -21,7 +23,7 @@ const Note= ({note,number}:NoteProps) => {
           </div>
         </div>
         <div className="note-btns">
-          <button className='note-delete-btn'>Delete</button>
+          <MyButton className={classes.buttonDelete} >Delete</MyButton>
         </div>
       </div>
   );

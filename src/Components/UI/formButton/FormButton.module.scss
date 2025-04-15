@@ -1,4 +1,4 @@
-.myBtn {
+.buttonCreate {
     background: #3498db;
     color: white;
     border: none;
@@ -10,6 +10,22 @@
 }
 
 
-.myBtn:hover {
+.buttonCreate:hover {
   background: #2980b9;
+}
+
+.buttonDelete {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.buttonDelete:hover {
+  background: #c0392b;
 }

@@ -17,11 +17,7 @@
 }
 
 .note {
-  // background: #D5D5D5;
-  // background: -webkit-linear-gradient(45deg, #1b2c55,#3d85a9,#63cac8,#b8edff);background: linear-gradient(45deg, #1b2c55,#3d85a9,#63cac8,#b8edff);
-//   background: -webkit-linear-gradient(90deg, #eb8770,#975281,#123661);
-// background: linear-gradient(90deg, #eb8770,#975281,#123661);
-background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
+  background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
   border-radius: 12px;
   padding: 20px;
   min-width: 280px;
@@ -37,7 +33,6 @@ background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: 
 
 .note-title {
   margin-top: 0;
-  // color: #2c3e50;
   color: white;
   font-size: 18px;
 }
@@ -47,18 +42,3 @@ background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: 
   line-height: 1.5;
 }
 
-.note-delete-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 15px;
-  transition: background 0.3s;
-}
-
-.note-delete-btn:hover {
-  background: #c0392b;
-}
