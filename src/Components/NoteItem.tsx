@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MyButton from './UI/formButton/FormButton';
 import classes from './UI/formButton/FormButton.module.scss'
+import { NoteContext } from './context/CreateContext';
 
 interface INote {
   title:string,
@@ -13,7 +14,14 @@ interface NoteProps {
   number?:number
 }
 
-const Note= ({note,number}:NoteProps) => {
+const NoteItem= ({note,number}:NoteProps) => {
+
+const {notes, setNotes} = useContext(NoteContext)
+
+const deleteNote = (note:INote) => {
+  setNotes(notes?.filter((n) => n.id !== note.id))
+}
+
   return (
     <div className="note">
         <div className="note-content">
@@ -23,10 +31,10 @@ const Note= ({note,number}:NoteProps) => {
           </div>
         </div>
         <div className="note-btns">
-          <MyButton className={classes.buttonDelete} >Delete</MyButton>
+          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >Delete</MyButton>
         </div>
       </div>
   );
 };
 
-export default Note;
+export default NoteItem;

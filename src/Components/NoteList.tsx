@@ -1,5 +1,6 @@
 import React from 'react';
 import Note from './NoteItem';
+import NoteItem from './NoteItem';
 
 interface INote {
   id:number,
@@ -16,7 +17,7 @@ const NoteList = ({notes}:INoteListProps) => {
   return (
     <div>
       {notes.map((note,index) => 
-      <Note key={note.id} note={note} number={index + 1} />
+      <NoteItem   key={note.id} note={note} number={index + 1} />
       )}
     </div>
   );

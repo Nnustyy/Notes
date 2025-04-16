@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './styles/index.scss'
 import NoteList from './Components/NoteList';
 import CreateNoteForm from './Components/CreateNoteForm';
+import { NoteContext } from './Components/context/CreateContext';
 
-interface INote {
+export interface INote {
   id:number,
   title:string,
   desc:string
 }
+
+
 
 const App = () => {
 
@@ -15,15 +18,20 @@ const App = () => {
 const [notes, setNotes] = useState<INote[]>([])
 
 
-const createNewNote = (newNote:{title:string, desc:string, id:number}) => {
+const createNewNote = (newNote:INote) => {
   setNotes([...notes, newNote])
 }
 
 
   return (
     <div  className='App'>
+
+      <NoteContext.Provider value={{notes, setNotes}} >
       <CreateNoteForm create={createNewNote} />
-      <NoteList notes={notes} />
+      {notes.length === 0
+      ? <h1 style={{textAlign:"center"}} >There are no posts</h1>
+      : <NoteList notes={notes} />}
+      </NoteContext.Provider>
     </div>
   );
 };
