@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import MyButton from './UI/formButton/FormButton';
-import classes from './UI/formButton/FormButton.module.scss'
+import React, { useContext, useState } from 'react';
+import MyButton from './UI/MyButton/MyButton';
+import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/CreateContext';
+import Modal from './UI/modal/Modal';
 
 interface INote {
   title:string,
@@ -15,8 +16,12 @@ interface NoteProps {
 }
 
 const NoteItem= ({note,number}:NoteProps) => {
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const {notes, setNotes} = useContext(NoteContext)
 
-const {notes, setNotes} = useContext(NoteContext)
+  function toggleModal () {
+    setShowModal(!showModal)
+  }
 
 const deleteNote = (note:INote) => {
   setNotes(notes?.filter((n) => n.id !== note.id))
@@ -31,7 +36,17 @@ const deleteNote = (note:INote) => {
           </div>
         </div>
         <div className="note-btns">
-          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >Delete</MyButton>
+          <MyButton className={classes.buttonDelete} onClick={toggleModal} >Delete</MyButton>
+          <Modal active={showModal} setActive={setShowModal}>
+            <h2>Do you want to delete the note?</h2>
+            
+            <MyButton className={classes.buttonDelete} onClick={() =>  deleteNote(note) } >Yes</MyButton>
+            <MyButton className={classes.buttonCancel} onClick={toggleModal} >No</MyButton> 
+            
+            
+          </Modal>
+            
+          
         </div>
       </div>
   );

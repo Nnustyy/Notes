@@ -29,3 +29,15 @@
 .buttonDelete:hover {
   background: #c0392b;
 }
+
+.buttonCancel {
+  background: #474A51;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s;
+}

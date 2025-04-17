@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import React from 'react';
-import MyButton from './UI/formButton/FormButton';
+import MyButton from './UI/MyButton/MyButton';
 import MyInput from './UI/input/MyInput';
 import MyTextarea from './UI/textarea/MyTextarea';
-import classes from './UI/formButton/FormButton.module.scss'
+import classes from './UI/MyButton/MyButton.module.scss'
 
 interface INote {
   id:number,

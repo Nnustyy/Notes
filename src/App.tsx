@@ -14,9 +14,7 @@ export interface INote {
 
 const App = () => {
 
-
 const [notes, setNotes] = useState<INote[]>([])
-
 
 const createNewNote = (newNote:INote) => {
   setNotes([...notes, newNote])
@@ -25,7 +23,6 @@ const createNewNote = (newNote:INote) => {
 
   return (
     <div  className='App'>
-
       <NoteContext.Provider value={{notes, setNotes}} >
       <CreateNoteForm create={createNewNote} />
       {notes.length === 0

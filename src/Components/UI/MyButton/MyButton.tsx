@@ -1,5 +1,4 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
-import classes from './FormButton.module.scss'
 
 interface IMyButton {
   children?:React.ReactNode,
