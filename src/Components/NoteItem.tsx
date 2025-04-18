@@ -4,6 +4,7 @@ import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/CreateContext';
 import Modal from './UI/modal/Modal';
 
+
 interface INote {
   title:string,
   desc:string,
@@ -28,7 +29,7 @@ const deleteNote = (note:INote) => {
 }
 
   return (
-    <div className="note">
+    <div className="note" data-aos="fade-up" >
         <div className="note-content">
           <div className='note-title'> {number}. {note.title}</div>
           <div className='note-desc'>

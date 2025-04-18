@@ -3,6 +3,8 @@ import './styles/index.scss'
 import NoteList from './Components/NoteList';
 import CreateNoteForm from './Components/CreateNoteForm';
 import { NoteContext } from './Components/context/CreateContext';
+import 'aos/dist/aos.css'
+import Aos from 'aos';
 
 export interface INote {
   id:number,
@@ -13,8 +15,10 @@ export interface INote {
 
 
 const App = () => {
-
+Aos.init()
 const [notes, setNotes] = useState<INote[]>([])
+
+
 
 const createNewNote = (newNote:INote) => {
   setNotes([...notes, newNote])
