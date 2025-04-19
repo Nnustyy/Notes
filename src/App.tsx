@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import './styles/index.scss'
 import NoteList from './Components/NoteList';
 import CreateNoteForm from './Components/CreateNoteForm';
 import { NoteContext } from './Components/context/CreateContext';
 import 'aos/dist/aos.css'
 import Aos from 'aos';
+
 
 export interface INote {
   id:number,
@@ -15,14 +16,25 @@ export interface INote {
 
 
 const App = () => {
-Aos.init()
-const [notes, setNotes] = useState<INote[]>([])
+  const [notes, setNotes] = useState<INote[]>([])
 
+useEffect(() => {
+  Aos.init()
+},[])
 
+useEffect(() => {
+  const saved = localStorage.getItem('notes')
+  if(saved) {
+    setNotes(JSON.parse(saved))
+  }
+}, [])
 
 const createNewNote = (newNote:INote) => {
-  setNotes([...notes, newNote])
+  const updatedNotes = [...notes, newNote]
+  setNotes(updatedNotes)
+  localStorage.setItem('notes', JSON.stringify(updatedNotes))
 }
+
 
 
   return (

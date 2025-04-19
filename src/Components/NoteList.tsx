@@ -10,7 +10,7 @@ interface INote {
 }
 
 interface INoteListProps {
-  notes:INote[]
+  notes:INote[] 
 }
 
 const NoteList = ({notes}:INoteListProps) => {
