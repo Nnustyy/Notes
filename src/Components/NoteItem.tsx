@@ -40,7 +40,7 @@ const deleteNote = (note:INote) => {
           </div>
         </div>
         <div className="note-btns">
-          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >Delete</MyButton>
+          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >✖</MyButton>
           {/* <Modal active={showModal} setActive={setShowModal}>
             <h2>Do you want to delete the note?</h2>
             
