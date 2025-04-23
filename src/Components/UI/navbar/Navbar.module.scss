@@ -1,0 +1,51 @@
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 30px 10%;
+  width: 100vw;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #999999;
+  margin-bottom: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  cursor: pointer;
+  margin: 0;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+
+.listItem {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+
+
+header li a {
+  transition: all 0.3s ease 0s;
+}
+
+header li a:hover{
+  color:#eee;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { ClassAttributes, useContext, useEffect, useState } from 'react';
 import MyButton from './UI/MyButton/MyButton';
 import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/CreateContext';
@@ -30,6 +30,8 @@ const deleteNote = (note:INote) => {
   setNotes(updatedNotes)
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
+
+
 
   return (
     <div className="note" data-aos="fade-up" >
