@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import classes from './Navbar.module.scss'
 
 const Navbar = () => {
+
+  const [isDark, setIsDark] = useState<boolean>(false)
+
   return (
     <header>
       <NavLink className={classes.logo} to='/' >Notes</NavLink>

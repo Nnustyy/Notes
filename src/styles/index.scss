@@ -4,15 +4,38 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bgc-color:#CCCCCC;
+  --nav-bgc-color:#999999;
+  --foreground-color:#003cff;
+  --primary-text-color:#0a0a0a;
+  --desc-color:#a2aaaa;
+  --secondary-text-color:#ffff;
+  --note-bg:-webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
+}
+
+[data-theme="dark"] {
+  --bgc-color: #1a1a1a;
+  --nav-bgc-color: #2d2d2d;
+  --primary-text-color:#eee;
+  --secondary-text-color:#0a0a0a;
+  --desc-color:#1a1818;
+  --note-bg: rgba(148, 187, 233, 0.7);
+  
+}
 
 #root {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
-  background-color: #CCCCCC;
+  background-color:var(--bgc-color);
   min-height: 100vh;
 
 }
+
+
+
+
 
 .App {
   width: 100%;
@@ -21,7 +44,7 @@
 }
 
 .note {
-  background: -webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
+  background:var(--note-bg) ;
   border-radius: 12px;
   padding: 20px;
   min-width: 280px;
@@ -33,12 +56,13 @@
 
 .note-title {
   margin-top: 0;
-  color: white;
+  color: var(--secondary-text-color);
   font-size: 18px;
+  font-weight: 500;
 }
 
 .note-desc {
-  color: #a2aaaa;
+  color:var(--desc-color);
   line-height: 1.5;
 }
 
