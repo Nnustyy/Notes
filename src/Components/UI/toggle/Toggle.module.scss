@@ -1,0 +1,56 @@
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #c6c6c6;
+  outline: none;
+  border-radius: 20px;
+  transition: .5s;
+  box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+  cursor: pointer;
+
+  &:checked {
+    background: #4CAF50;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background: #fff;
+    transition: .5s;
+    transform: scale(1.1);
+  }
+
+  &:checked::before {
+    left: calc(100% - 28px);
+  }
+}
+
+[data-theme="dark"] {
+  .toggle {
+    background: #555;
+
+    &:checked {
+      background: #2196F3;
+    }
+  }
+
+  label {
+    color: #fff;
+  }
+}
+

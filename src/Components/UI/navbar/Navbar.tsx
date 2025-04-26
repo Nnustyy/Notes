@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './Navbar.module.scss'
+import Toggle from '../toggle/Toggle';
 
 const Navbar = () => {
 
-  const [isDark, setIsDark] = useState<boolean>(false)
+  const [isDark, setIsDark] = useState(false)
+
+const handleChange = () => {
+
+  if(!isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    setIsDark(true)
+  } else if (isDark) {
+    document.documentElement.removeAttribute('data-theme')
+    setIsDark(false)
+  }
+}
 
   return (
     <header>
@@ -22,7 +34,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div>toggle</div>
+    <Toggle isChecked={isDark} handleChange={handleChange} />
     </header>
   );
 };
