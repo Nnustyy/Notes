@@ -18,9 +18,6 @@
   box-shadow: inset 0 0 5px rgba(0,0,0,.2);
   cursor: pointer;
 
-  &:checked {
-    background: #4CAF50;
-  }
 
   &::before {
     content: '';
@@ -40,17 +37,4 @@
   }
 }
 
-[data-theme="dark"] {
-  .toggle {
-    background: #555;
-
-    &:checked {
-      background: #2196F3;
-    }
-  }
-
-  label {
-    color: #fff;
-  }
-}
 

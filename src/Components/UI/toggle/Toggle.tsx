@@ -3,7 +3,6 @@ import classes from './Toggle.module.scss'
 
 interface IToggle {
   handleChange:() => void,
-  isChecked:boolean
 }
 
 const Toggle = ({handleChange}:IToggle) => {
