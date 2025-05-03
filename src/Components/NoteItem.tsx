@@ -1,9 +1,9 @@
-import React, { ClassAttributes, useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import MyButton from './UI/MyButton/MyButton';
 import classes from './UI/MyButton/MyButton.module.scss'
-import { NoteContext } from './context/CreateContext';
-import Modal from './UI/modal/Modal';
-import { useFormState } from 'react-dom';
+import { NoteContext } from './context/NoteContext';
+// import Modal from './UI/modal/Modal';
+// import { useFormState } from 'react-dom';
 
 
 interface INote {
@@ -18,8 +18,8 @@ interface NoteProps {
 }
 
 const NoteItem= ({note,number}:NoteProps) => {
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const {notes, setNotes} = useContext(NoteContext)
+  // const [showModal, setShowModal] = useState<boolean>(false)
+  const {notes, setNotes,setRecentlyDeletedNotes} = useContext(NoteContext)
 
   // function toggleModal () {
   //   setShowModal(!showModal)
@@ -27,9 +27,11 @@ const NoteItem= ({note,number}:NoteProps) => {
 
 const deleteNote = (note:INote) => {
   const updatedNotes = (notes.filter((n) => n.id !== note.id))
+  setRecentlyDeletedNotes((prev) => [...prev, note])
   setNotes(updatedNotes)
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
+
 
 
 

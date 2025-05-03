@@ -1,8 +1,8 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/index.scss'
 import NoteList from '../Components/NoteList';
 import CreateNoteForm from '../Components/CreateNoteForm';
-import { NoteContext } from '../Components/context/CreateContext';
+import { NoteContext } from '../Components/context/NoteContext';
 import 'aos/dist/aos.css'
 import Aos from 'aos';
 
@@ -15,8 +15,10 @@ export interface INote {
 
 
 
+
 const Notes = () => {
   const [notes, setNotes] = useState<INote[]>([])
+  const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>([])
 
 useEffect(() => {
   Aos.init()
@@ -39,7 +41,7 @@ const createNewNote = (newNote:INote) => {
 
   return (
     <div  className='App'>
-      <NoteContext.Provider value={{notes, setNotes}} >
+      <NoteContext.Provider value={{notes, setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes}} >
       <CreateNoteForm create={createNewNote} />
       {notes.length === 0
       ? <h1 style={{textAlign:"center"}} >There are no posts</h1>

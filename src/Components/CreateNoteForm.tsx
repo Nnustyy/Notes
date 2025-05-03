@@ -34,7 +34,7 @@ const CreateNoteForm = ({create}:CreateNoteFormProps) => {
   return (
     <form>
     <MyInput type="text" placeholder='title' value={note.title} onChange={e => setNote({...note, title:e.target.value})} />
-    <MyTextarea placeholder="descripton" value={note.desc} onChange={e => setNote({...note, desc:e.target.value})} ></MyTextarea>
+    <MyTextarea placeholder="description" value={note.desc} onChange={e => setNote({...note, desc:e.target.value})} ></MyTextarea>
     <MyButton className={classes.buttonCreate} onClick={addNewNote} >create note</MyButton>
   </form> 
   );
