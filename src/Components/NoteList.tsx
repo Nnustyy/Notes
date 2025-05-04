@@ -1,5 +1,3 @@
-import React from 'react';
-import Note from './NoteItem';
 import NoteItem from './NoteItem';
 
 interface INote {

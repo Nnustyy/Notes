@@ -5,21 +5,28 @@ import Navbar from './Components/UI/navbar/Navbar';
 import FavoritesNotes from './pages/FavoritesNotes';
 import BinNotes from './pages/BinNotes';
 import NotFoundPage from './pages/NotFoundPage';
+import { NoteContext } from './Components/context/NoteContext';
+import { useState } from 'react';
+import { INote } from './pages/Notes';
 
 const App = () => {
+    const [notes, setNotes] = useState<INote[]>([])
+    const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>([])
   return (
 
 <>
 <div>
   
-    <Navbar/>
-    <Routes>
-  <Route path='/' element={<Notes/>} />
-  <Route path='fav' element={<FavoritesNotes/>} />
-  <Route path='bin' element={<BinNotes/>} />
-  <Route path='*' element={<NotFoundPage/>}></Route>
-  
-    </Routes>
+  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes}}>
+      <Navbar/>
+      <Routes>
+    <Route path='/' element={<Notes/>} />
+    <Route path='fav' element={<FavoritesNotes/>} />
+    <Route path='bin' element={<BinNotes/>} />
+    <Route path='*' element={<NotFoundPage/>}></Route>
+    
+      </Routes>
+  </NoteContext.Provider>
   
 </div>
 

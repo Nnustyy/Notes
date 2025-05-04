@@ -32,7 +32,9 @@ const deleteNote = (note:INote) => {
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
 
-
+// useEffect(() => {
+// console.log(recentlyDeletedNotes)
+// },[recentlyDeletedNotes])
 
 
   return (

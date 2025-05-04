@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../styles/index.scss'
 import NoteList from '../Components/NoteList';
 import CreateNoteForm from '../Components/CreateNoteForm';
 import { NoteContext } from '../Components/context/NoteContext';
 import 'aos/dist/aos.css'
 import Aos from 'aos';
+
 
 
 export interface INote {
@@ -17,8 +18,7 @@ export interface INote {
 
 
 const Notes = () => {
-  const [notes, setNotes] = useState<INote[]>([])
-  const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>([])
+  const {notes, setNotes,setRecentlyDeletedNotes,recentlyDeletedNotes} = useContext(NoteContext)
 
 useEffect(() => {
   Aos.init()
