@@ -56,3 +56,22 @@
 // .buttonError:hover {
 //   background:#808080;
 // }
+
+
+.buttonRestore {
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s;
+  background-color: #40c057;
+
+}
+
+
+.buttonRestore:hover {
+  background-color: #37b24d;
+}
