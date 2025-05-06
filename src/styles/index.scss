@@ -95,7 +95,6 @@
   align-items: center;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  // background-color: #f8f9fa;
   background: -webkit-linear-gradient(90deg, #405758,#5e787b,#405758);background: linear-gradient(90deg, #405758,#5e787b,#405758);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -103,7 +102,6 @@
 }
 
 .bin:hover{
-  // background-color: #e9ecef;
   transform: translateY(-2px);
 }
 

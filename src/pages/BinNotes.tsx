@@ -3,11 +3,14 @@ import { NoteContext } from '../Components/context/NoteContext';
 import BinList from '../Components/BinList';
 
 const BinNotes = () => {
-  const {recentlyDeletedNotes} = useContext(NoteContext)
+  const {recentlyDeletedNotes,setRecentlyDeletedNotes} = useContext(NoteContext)
 
   useEffect(()=> {
-    console.log(recentlyDeletedNotes)
-  },[recentlyDeletedNotes])
+    const saved = localStorage.getItem('deletedNotes')
+    if(saved) {
+      setRecentlyDeletedNotes(JSON.parse(saved))
+    }
+  },[])
   return (
     <div>
       <BinList deletedNotes={recentlyDeletedNotes} />

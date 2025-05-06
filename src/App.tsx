@@ -6,12 +6,17 @@ import FavoritesNotes from './pages/FavoritesNotes';
 import BinNotes from './pages/BinNotes';
 import NotFoundPage from './pages/NotFoundPage';
 import { NoteContext } from './Components/context/NoteContext';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { INote } from './pages/Notes';
 
 const App = () => {
     const [notes, setNotes] = useState<INote[]>([])
     const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>([])
+    
+    useEffect(() => {
+  localStorage.setItem('deletedNotes',JSON.stringify(recentlyDeletedNotes))
+},[recentlyDeletedNotes])
+
   return (
 
 <>

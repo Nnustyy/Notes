@@ -25,12 +25,15 @@ const NoteItem= ({note,number}:NoteProps) => {
   //   setShowModal(!showModal)
   // }
 
+
+
 const deleteNote = (note:INote) => {
   const updatedNotes = (notes.filter((n) => n.id !== note.id))
-  setRecentlyDeletedNotes((prev) => [...prev, note])
   setNotes(updatedNotes)
+  setRecentlyDeletedNotes((prev) => [...prev, note]) 
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
+
 
 
 
