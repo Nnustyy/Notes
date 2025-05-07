@@ -24,13 +24,6 @@ useEffect(() => {
   Aos.init()
 },[])
 
-useEffect(() => {
-  const saved = localStorage.getItem('notes')
-  if(saved) {
-    setNotes(JSON.parse(saved))
-  }
-}, [])
-
 const createNewNote = (newNote:INote) => {
   const updatedNotes = [...notes, newNote]
   setNotes(updatedNotes)

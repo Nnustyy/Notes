@@ -10,9 +10,22 @@ import { useState ,useEffect} from 'react';
 import { INote } from './pages/Notes';
 
 const App = () => {
-    const [notes, setNotes] = useState<INote[]>([])
-    const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>([])
+
+    const [notes, setNotes] = useState<INote[]>(() => {
+      const savedNotes = localStorage.getItem('notes');
+      return savedNotes ? JSON.parse(savedNotes) : [];
+    });
+  
+    const [recentlyDeletedNotes, setRecentlyDeletedNotes] = useState<INote[]>(() => {
+      const savedDeletedNotes = localStorage.getItem('deletedNotes');
+      return savedDeletedNotes ? JSON.parse(savedDeletedNotes) : [];
+    });
     
+
+    useEffect(() => {
+      localStorage.setItem('notes',JSON.stringify(notes))
+    },[notes])
+
     useEffect(() => {
   localStorage.setItem('deletedNotes',JSON.stringify(recentlyDeletedNotes))
 },[recentlyDeletedNotes])
