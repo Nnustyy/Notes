@@ -13,8 +13,11 @@ const BinItem = (deletedNote:INote) => {
   const updatedNotes = (recentlyDeletedNotes.filter((note) => note.id !== deletedNote.id))
   setRecentlyDeletedNotes(updatedNotes)
   setNotes((prev => [...prev, deletedNote]))
+  })
 
-  
+  const deleteNote = ((deletedNote:INote) => {
+    const updatedNotes = (recentlyDeletedNotes.filter((note) => note.id !== deletedNote.id))
+    setRecentlyDeletedNotes(updatedNotes)
   })
 
   return (
@@ -24,7 +27,7 @@ const BinItem = (deletedNote:INote) => {
         <div className="bin-desc">{deletedNote.desc}</div>
         <div className="bin-actions">
           <MyButton onClick={() => restore(deletedNote)} className={classes.buttonRestore} >Restore</MyButton>
-          <MyButton className={classes.buttonDelete} >Delete</MyButton>
+          <MyButton onClick={() => deleteNote(deletedNote)} className={classes.buttonDelete} >Delete</MyButton>
         </div>
       </div>
     </div>
