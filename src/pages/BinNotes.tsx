@@ -8,7 +8,10 @@ const BinNotes = () => {
 
   return (
     <div>
-      <BinList deletedNotes={recentlyDeletedNotes} />
+      {recentlyDeletedNotes.length === 0 
+      ? <h1 style={{textAlign:"center"}} >There are no deleted notes</h1>
+      : <BinList deletedNotes={recentlyDeletedNotes} />}
+      
     </div>
   );
 };
