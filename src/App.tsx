@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Notes from './pages/Notes';
 import {  Route, Routes } from 'react-router-dom';
 import Navbar from './Components/UI/navbar/Navbar';
@@ -11,6 +11,8 @@ import { INote } from './pages/Notes';
 
 const App = () => {
 
+
+
     const [notes, setNotes] = useState<INote[]>(() => {
       const savedNotes = localStorage.getItem('notes');
       return savedNotes ? JSON.parse(savedNotes) : [];
@@ -21,6 +23,14 @@ const App = () => {
       return savedDeletedNotes ? JSON.parse(savedDeletedNotes) : [];
     });
     
+    const [likedNotes, setLikedNotes] = useState<INote[]>(() => {
+      const saveLikedNotes = localStorage.getItem('likedNotes');
+      return saveLikedNotes ? JSON.parse(saveLikedNotes) : [];
+    })
+
+    useEffect(() => {
+      localStorage.setItem('likedNotes', JSON.stringify(likedNotes))
+    },[likedNotes])
 
     useEffect(() => {
       localStorage.setItem('notes',JSON.stringify(notes))
@@ -35,7 +45,7 @@ const App = () => {
 <>
 <div>
   
-  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes}}>
+  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes,likedNotes,setLikedNotes}}>
       <Navbar/>
       <Routes>
     <Route path='/' element={<Notes/>} />

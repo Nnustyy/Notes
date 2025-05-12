@@ -64,6 +64,10 @@
   color:var(--desc-color);
   line-height: 1.5;
 }
+.note-actions {
+  display: flex;
+  gap: 15px;
+}
 
 .errorPage{
   display: flex;

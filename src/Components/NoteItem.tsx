@@ -19,7 +19,7 @@ interface NoteProps {
 
 const NoteItem= ({note,number}:NoteProps) => {
   // const [showModal, setShowModal] = useState<boolean>(false)
-  const {notes, setNotes,setRecentlyDeletedNotes} = useContext(NoteContext)
+  const {notes, setNotes,setRecentlyDeletedNotes,setLikedNotes} = useContext(NoteContext)
 
   // function toggleModal () {
   //   setShowModal(!showModal)
@@ -34,9 +34,14 @@ const deleteNote = (note:INote) => {
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
 
-
-
-
+  const likeNote = (note:INote) => {
+    
+    setLikedNotes((prev) => {
+      const updatedLikedNotes = [...prev, note]
+      localStorage.setItem('likedNotes', JSON.stringify(updatedLikedNotes))
+      return updatedLikedNotes
+    })
+}
 
   return (
     <div className="note" data-aos="fade-up" >
@@ -46,8 +51,8 @@ const deleteNote = (note:INote) => {
             {note.desc}
           </div>
         </div>
-        <div className="note-btns">
-          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >✖</MyButton>
+        <div className="note-actions">
+          <MyButton className={classes.buttonDelete} onClick={() => deleteNote(note)} >✖️</MyButton>
           {/* <Modal active={showModal} setActive={setShowModal}>
             <h2>Do you want to delete the note?</h2>
             
@@ -56,6 +61,7 @@ const deleteNote = (note:INote) => {
             
             
           </Modal> */}
+          <MyButton className={classes.buttonFav} onClick={() => likeNote(note)} >❤️</MyButton>
             
           
         </div>

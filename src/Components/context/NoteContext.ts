@@ -10,7 +10,9 @@ interface NoteContextType {
   notes:INote[],
   setNotes:Dispatch<SetStateAction<INote[]>>,
   setRecentlyDeletedNotes:Dispatch<SetStateAction<INote[]>>,
-  recentlyDeletedNotes:INote[]
+  recentlyDeletedNotes:INote[],
+  setLikedNotes:Dispatch<SetStateAction<INote[]>>,
+  likedNotes:INote[]
 }
 
 
@@ -18,6 +20,8 @@ export const NoteContext = createContext<NoteContextType>({
     notes:[],
     setNotes:() =>{},
     recentlyDeletedNotes:[],
-    setRecentlyDeletedNotes:() => {}
+    setRecentlyDeletedNotes:() => {},
+    setLikedNotes:() => {},
+    likedNotes:[]
 })
 

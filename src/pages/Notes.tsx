@@ -18,7 +18,7 @@ export interface INote {
 
 
 const Notes = () => {
-  const {notes, setNotes,setRecentlyDeletedNotes,recentlyDeletedNotes} = useContext(NoteContext)
+  const {notes, setNotes} = useContext(NoteContext)
 
 useEffect(() => {
   Aos.init()
@@ -34,12 +34,11 @@ const createNewNote = (newNote:INote) => {
 
   return (
     <div  className='App'>
-      <NoteContext.Provider value={{notes, setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes}} >
       <CreateNoteForm create={createNewNote} />
       {notes.length === 0
       ? <h1 style={{textAlign:"center"}} >There are no posts</h1>
       : <NoteList notes={notes} />}
-      </NoteContext.Provider>
+      
     </div>
   );
 };

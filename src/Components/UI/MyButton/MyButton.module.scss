@@ -75,3 +75,18 @@
 .buttonRestore:hover {
   background-color: #37b24d;
 }
+
+.buttonFav {
+  background: #f598a8;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.buttonFav:hover {
+  background: #c07784;
+}
