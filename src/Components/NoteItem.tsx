@@ -2,6 +2,7 @@ import React, { useContext} from 'react';
 import MyButton from './UI/MyButton/MyButton';
 import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/NoteContext';
+import MyCheckbox from './UI/checkbox/MyCheckbox';
 // import Modal from './UI/modal/Modal';
 // import { useFormState } from 'react-dom';
 
@@ -61,7 +62,8 @@ const deleteNote = (note:INote) => {
             
             
           </Modal> */}
-          <MyButton className={classes.buttonFav} onClick={() => likeNote(note)} >❤️</MyButton>
+          {/* <MyButton className={classes.buttonFav} onClick={() => likeNote(note)} >❤️</MyButton> */}
+          <MyCheckbox id={note.id} />
             
           
         </div>

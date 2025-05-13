@@ -1,0 +1,64 @@
+// MyCheckbox.module.scss
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+  
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+    &:checked ~ .checkmark {
+      background-color: #ff4d4d;
+      border-color: #ff4d4d;
+      
+      &:after {
+        opacity: 1;
+      }
+    }
+    
+    &:focus ~ .checkmark {
+      box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.3);
+    }
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    
+    &:after {
+      content: "❤️";
+      position: absolute;
+      opacity: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s ease;
+      font-size: 14px;
+    }
+  }
+  
+  &:hover {
+    .checkmark {
+      border-color: #ff4d4d;
+    }
+    
+    input:checked ~ .checkmark {
+      background-color: #ff6666;
+    }
+  }
+}
