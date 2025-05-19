@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  color: var(--primary-text-color);
+}
+
 :root {
   --bgc-color:#CCCCCC;
   --nav-bgc-color:#999999;
@@ -65,6 +69,8 @@
   line-height: 1.5;
 }
 .note-actions {
+  justify-content: space-between;
+  align-items:center;
   display: flex;
   gap: 15px;
 }

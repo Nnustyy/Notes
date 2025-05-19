@@ -12,7 +12,7 @@ const FavoritesNotes = () => {
   return (
     <div>
       {likedNotes.length === 0 
-      ? <h1>there are no liked notes</h1>
+      ? <h1 style={{textAlign:'center'}} >There are no liked notes</h1>
       : <FavoriteList favNotes={likedNotes} />
     }
       

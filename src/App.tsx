@@ -28,6 +28,20 @@ const App = () => {
       return saveLikedNotes ? JSON.parse(saveLikedNotes) : [];
     })
 
+
+    const toggleLike = (note: INote) => {
+      setLikedNotes(prev => {
+        const isLiked = prev.some(n => n.id === note.id);
+        const updatedLikedNotes = isLiked
+          ? prev.filter(n => n.id !== note.id)
+          : [...prev, note]; 
+        
+        localStorage.setItem('likedNotes', JSON.stringify(updatedLikedNotes));
+        return updatedLikedNotes;
+      });
+    };
+
+
     useEffect(() => {
       localStorage.setItem('likedNotes', JSON.stringify(likedNotes))
     },[likedNotes])
@@ -45,7 +59,7 @@ const App = () => {
 <>
 <div>
   
-  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes,likedNotes,setLikedNotes}}>
+  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes,likedNotes,setLikedNotes,toggleLike}}>
       <Navbar/>
       <Routes>
     <Route path='/' element={<Notes/>} />

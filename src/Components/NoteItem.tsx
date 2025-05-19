@@ -2,7 +2,6 @@ import React, { useContext} from 'react';
 import MyButton from './UI/MyButton/MyButton';
 import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/NoteContext';
-import MyCheckbox from './UI/checkbox/MyCheckbox';
 // import Modal from './UI/modal/Modal';
 // import { useFormState } from 'react-dom';
 
@@ -20,7 +19,11 @@ interface NoteProps {
 
 const NoteItem= ({note,number}:NoteProps) => {
   // const [showModal, setShowModal] = useState<boolean>(false)
-  const {notes, setNotes,setRecentlyDeletedNotes,setLikedNotes} = useContext(NoteContext)
+  const {notes, setNotes,setRecentlyDeletedNotes,toggleLike,likedNotes} = useContext(NoteContext)
+
+  const isLiked = Array.isArray(likedNotes) 
+  ? likedNotes.some((likedNote) => likedNote.id === note.id)
+  : false;
 
   // function toggleModal () {
   //   setShowModal(!showModal)
@@ -35,14 +38,6 @@ const deleteNote = (note:INote) => {
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
 
-  const likeNote = (note:INote) => {
-    
-    setLikedNotes((prev) => {
-      const updatedLikedNotes = [...prev, note]
-      localStorage.setItem('likedNotes', JSON.stringify(updatedLikedNotes))
-      return updatedLikedNotes
-    })
-}
 
   return (
     <div className="note" data-aos="fade-up" >
@@ -62,10 +57,7 @@ const deleteNote = (note:INote) => {
             
             
           </Modal> */}
-          {/* <MyButton className={classes.buttonFav} onClick={() => likeNote(note)} >❤️</MyButton> */}
-          <MyCheckbox id={note.id} />
-            
-          
+          <MyButton className={classes.buttonFav} onClick={() => toggleLike(note)} >{isLiked ? '❤️' : '🤍'}</MyButton>
         </div>
       </div>
   );
