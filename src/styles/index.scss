@@ -16,6 +16,7 @@ h1 {
   --desc-color:#a2aaaa;
   --secondary-text-color:#ffff;
   --note-bg:-webkit-linear-gradient(90deg, #1f2937,#293647,#233043);background: linear-gradient(90deg, #1f2937,#293647,#233043);
+  --fav-note-bg:#ffe9f4;
 }
 
 [data-theme="dark"] {
@@ -25,6 +26,7 @@ h1 {
   --secondary-text-color:#0a0a0a;
   --desc-color:#1a1818;
   --note-bg: rgba(148, 187, 233, 0.7);
+  --fav-note-bg:#4f3d40;
 }
 
 #root {
@@ -133,4 +135,33 @@ h1 {
   gap: 0.5rem;
 }
 
+.fav {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background-color:var(--fav-note-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+}
+
+.fav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fav-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin: 0;
+}
+
+.fav-desc {
+  font-size: 15px;
+  color:var(--desc-color);
+  line-height: 1.5;
+  margin: 0;
+}
 

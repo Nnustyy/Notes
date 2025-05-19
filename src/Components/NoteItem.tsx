@@ -35,6 +35,9 @@ const deleteNote = (note:INote) => {
   const updatedNotes = (notes.filter((n) => n.id !== note.id))
   setNotes(updatedNotes)
   setRecentlyDeletedNotes((prev) => [...prev, note]) 
+  if (isLiked) {
+    toggleLike(note)
+  }
   localStorage.setItem('notes', JSON.stringify(updatedNotes)) 
 }
 
