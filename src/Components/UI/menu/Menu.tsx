@@ -1,5 +1,5 @@
 import  { SetStateAction } from 'react';
-import classes from './menu.module.scss'
+import classes from './Menu.module.scss'
 import { NavLink } from 'react-router-dom';
 import { Dispatch } from 'react';
 
