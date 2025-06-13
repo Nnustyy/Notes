@@ -90,3 +90,16 @@
 .buttonFav:hover {
   background: #c07784;
 }
+
+
+@media(hover:hover) {
+  .buttonFav:hover {
+    background: #c07784;
+  }
+}
+
+@media(hover:none) {
+  .buttonFav:active {
+    background: #c07784;
+  }
+}

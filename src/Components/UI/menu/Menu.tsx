@@ -16,9 +16,9 @@ interface IMenu {
   
 }
 
-const menu = ({header,items,active}:IMenu) => {
+const menu = ({header,items,active,setActive}:IMenu) => {
   return (
-    <div className={active ? `${classes.menuActive}`: `${classes.menu}` }>
+    <div className={active ? `${classes.menuActive}`: `${classes.menu}` } onClick={() => setActive(false)} >
       <div className={classes.blur}>
         <div className={classes.content}>
           <h3>{header}</h3>
