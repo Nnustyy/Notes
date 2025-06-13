@@ -8,10 +8,13 @@ import NotFoundPage from './pages/NotFoundPage';
 import { NoteContext } from './Components/context/NoteContext';
 import { useState ,useEffect} from 'react';
 import { INote } from './pages/Notes';
+import Menu from './Components/UI/menu/Menu';
 
 const App = () => {
 
+    const [activeMenu,setActiveMenu] = useState(false)
 
+    const items = [{value:'Favorites ❤️',href:'/fav',id:1}, {value:'All notes 🗒️', href:'/',id:2}, {value:'Bin 🗑️', href:'/bin',id:3}]
 
     const [notes, setNotes] = useState<INote[]>(() => {
       const savedNotes = localStorage.getItem('notes');
@@ -59,15 +62,18 @@ const App = () => {
 <>
 <div>
   
-  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes,likedNotes,setLikedNotes,toggleLike}}>
+  <NoteContext.Provider value={{notes,setNotes,recentlyDeletedNotes,setRecentlyDeletedNotes,likedNotes,setLikedNotes,toggleLike,activeMenu,setActiveMenu}}>
       <Navbar/>
-      <Routes>
-    <Route path='/' element={<Notes/>} />
-    <Route path='fav' element={<FavoritesNotes/>} />
-    <Route path='bin' element={<BinNotes/>} />
-    <Route path='*' element={<NotFoundPage/>}></Route>
-    
-      </Routes>
+      <div className='contentWrapper'>
+        <Routes>
+      <Route path='/' element={<Notes/>} />
+      <Route path='fav' element={<FavoritesNotes/>} />
+      <Route path='bin' element={<BinNotes/>} />
+      <Route path='*' element={<NotFoundPage/>}></Route>
+      
+        </Routes>
+      </div>
+      <Menu active={activeMenu} setActive={setActiveMenu}   items={items} header={'Menu'}/>
   </NoteContext.Provider>
   
 </div>

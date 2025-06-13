@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Navbar.module.scss'
 import Toggle from '../toggle/Toggle';
+import { NoteContext } from '../../context/NoteContext';
+
+
+
 
 const Navbar = () => {
 
   const [isDark, setIsDark] = useState(false)
+  const {activeMenu,setActiveMenu} = useContext(NoteContext)
+
+
+
 
 useEffect(() => {
   if(localStorage.getItem('theme')) {
@@ -28,8 +36,13 @@ const handleChange = () => {
 
   return (
       <header>
+
+          <div className={classes.burgerBtn}  onClick={() => setActiveMenu(!activeMenu)}>
+          <span></span>
+        </div>
         <NavLink className={classes.logo} to='/' >Notes</NavLink>
-        <nav>
+        
+        {/* <nav className={classes.headerNav}>
           <ul className={classes.navLinks} >
             <li className={classes.listItem} >
               <NavLink className={classes.link} to='/fav' >Favorites ❤️</NavLink>
@@ -41,7 +54,7 @@ const handleChange = () => {
               <NavLink className={classes.link} to='/bin' >Bin 🗑️</NavLink>
             </li>
           </ul>
-        </nav>
+        </nav> */}
       <Toggle handleChange={handleChange} />
       </header>
     

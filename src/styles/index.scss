@@ -31,7 +31,6 @@ h1 {
 
 #root {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
   justify-content: center;
   background-color:var(--bgc-color);
   min-height: 100vh;
@@ -46,6 +45,7 @@ h1 {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  // padding-top: 150px;
 }
 
 .note {
@@ -165,3 +165,22 @@ h1 {
   margin: 0;
 }
 
+.contentWrapper {
+  padding-top: 150px;
+}
+
+
+
+@media (max-width:900px) {
+  .App {
+    max-width: 600px;
+  }
+
+  .bin {
+    max-width: 600px;
+  }
+
+  .fav {
+    max-width: 600px;
+  }
+}
