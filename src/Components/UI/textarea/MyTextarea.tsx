@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import  { ChangeEventHandler } from 'react';
 import classes from './MyTextarea.module.scss'
 
 interface IMyTextarea {

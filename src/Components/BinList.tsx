@@ -1,4 +1,3 @@
-import React from 'react';
 import { INote } from '../pages/Notes';
 import BinItem from './BinItem';
 

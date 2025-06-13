@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import '../styles/index.scss'
 import NoteList from '../Components/NoteList';
 import CreateNoteForm from '../Components/CreateNoteForm';

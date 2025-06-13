@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import { useContext} from 'react';
 import { NoteContext } from '../Components/context/NoteContext';
 import BinList from '../Components/BinList';
 

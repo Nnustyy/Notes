@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import  { SetStateAction } from 'react';
 import classes from './menu.module.scss'
 import { NavLink } from 'react-router-dom';
 import { Dispatch } from 'react';

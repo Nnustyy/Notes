@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import  { useContext} from 'react';
 import MyButton from './UI/MyButton/MyButton';
 import classes from './UI/MyButton/MyButton.module.scss'
 import { NoteContext } from './context/NoteContext';
