@@ -11,15 +11,15 @@ AOS animations throughout
 
 ## Tech Stack:
 
-#### Frameworks:
-### React
+### Frameworks:
+#### React
 
-#### Languages:
-### TypeScript (TS)
+### Languages:
+#### TypeScript (TS)
 
-#### Routing:
-### React Router DOM
+### Routing:
+#### React Router DOM
 
-#### Animations:
-### AOS (Animate on Scroll)
+### Animations:
+#### AOS (Animate on Scroll)
 
